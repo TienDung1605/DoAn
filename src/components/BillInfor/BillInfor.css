@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .m-billing-infor {
     width: 50%;
     padding: 80px 45px;
@@ -91,3 +97,41 @@
     line-height: 1.5;
     z-index: 1;
 }
+
+:root {
+    --btn-gradient: linear-gradient(to right top);
+  }
+  
+  .bt-button-1 {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    background-image: var(--btn-gradient);
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .bt-button-1:hover::before {
+    left: auto;
+    right: 0;
+    width: 100%;
+  }
+  .bt-button-1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: #fff;
+    opacity: 0.1;
+    z-index: -1;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }

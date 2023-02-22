@@ -66,7 +66,7 @@ const BillInfor = () => {
             <div className="b-billing-field">
                 <div className="billing-feild-form-bot">
                     <Link to="" className="continue">Tiếp tục mua sắm</Link>
-                    <button className="button-billing-field">Tiếp tục</button>
+                    <div class="bt-button-1">Tiếp tục</div>
                 </div>
             </div>
         </form>

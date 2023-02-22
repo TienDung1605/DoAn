@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./CartItem.css"
 
 const CartItem = ({item, handleRemoveProductInCart}) => {
     const [loaded, setLoaded] = useState(false);
@@ -13,7 +13,7 @@ const CartItem = ({item, handleRemoveProductInCart}) => {
 
                 <div className="cart-product-item-infor">
                     <h3>{item.title}</h3>
-                    <div className="cart-product-item-infor">
+                    <div className="cart-product-item-infor2">
                         <p>Kích cỡ SIZE 2</p>
                         <p>x 1</p>
                     </div>
@@ -28,7 +28,7 @@ const CartItem = ({item, handleRemoveProductInCart}) => {
                     </div>
 
                     <div className="cart-total-order">
-                        <div>
+                        <div className="c-total-order">
                             <div>Tổng</div>
                             <div>395,000đ</div>
                         </div>

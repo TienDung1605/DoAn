@@ -94,7 +94,7 @@ const Header = () => {
         <main className="main">
             <div className="banner">
                 <div className="banner-img">
-                    <img src="https://levents.asia/wp-content/uploads/2023/01/website-1920x988-1.png" alt="" />
+                    <img src="https://levents.asia/wp-content/uploads/2023/01/website-1920x988-1.png" alt="" style={{width: "100%"}}/>
                 </div>
             </div>
 

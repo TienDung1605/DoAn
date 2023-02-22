@@ -1,25 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchListProduct } from "./productActions";
 
-const initialState = [
-    {
-        id:"1",
-        name:"",
-        price: 0,
-        discount: 0,
-        avatar: "",
-    },
-];
+const initialState = {
+    product: []
+};
 
 const productSlice = createSlice({
-    name: "productSlice",
+    name: "products",
     initialState,
-    reducer: {},
-    extraReducer: (builder) => {
-        builder.addCase(fetchListProduct.fulfilled, (state, action) => {
-            return action.payload
-        });
-    },
+    // extraReducer: (builder) => {
+    //     builder.addCase(fetchListProduct.fulfilled, (state, action) => {
+    //         console.log('action',action);
+    //         return action.payload
+    //     });
+    // },
+    extraReducers: {
+        [fetchListProduct.fulfilled]: (state, action) => {
+            console.log('acation.payload',action.payload);
+            state.product = action.payload;
+        }
+    }
 });
 
-export const productReducer = productSlice.reducer;
+export const productReducer = productSlice.reducer
+export const productActions = productSlice.actions

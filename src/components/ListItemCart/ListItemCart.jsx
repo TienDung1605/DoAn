@@ -31,11 +31,11 @@ const ListItemCart = () => {
 
             <div className="cart-billing-container">
                 <div className="cart-apply-code">
-                <div class="fui-input-label-animation">
-                    <input type="text" class="form-input" placeholder=" "/>
-                    <label for="name" class="form-label">Mã giảm giá</label>
-                </div>
-                    <button>Sử dụng</button>
+                    <div class="fui-input-label-animation">
+                        <input type="text" class="form-input" placeholder=" "/>
+                        <label for="name" class="form-label">Mã giảm giá</label>
+                    </div>
+                    <div class="bt-button-1">Sử dụng</div>
                 </div>
 
                 

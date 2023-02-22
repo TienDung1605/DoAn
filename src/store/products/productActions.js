@@ -1,13 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://63db7454b8e69785e4826e59.mockapi.io/product";
+const BASE_URL = process.env.REACT_APP_API_KEY;
 
 export const fetchListProduct = createAsyncThunk(
-    "productSlice/fetchListProduct",
+    "products/getProducts",
     async () => {
         try {
-            const { data } = await axios.get(`${BASE_URL}/products`)
+            const { data } = await axios.get(`${BASE_URL}/product`)
+            console.log('data', data);
             return data;
         } catch (error) {
             
