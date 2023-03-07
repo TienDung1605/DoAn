@@ -1,21 +1,41 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decrementQuantity, incrementQuantity } from "../../store/cart/cartSlice";
 import "./CartItem.css"
 
-const CartItem = ({item, handleRemoveProductInCart}) => {
-    const [loaded, setLoaded] = useState(false);
+function CartItem({id,item,quantity=0}) {
+    const dispatch = useDispatch();
+    // const [loaded, setLoaded] = useState(false);
+    const cart = useSelector((state) => state.cart)
+    const getTotal = () => {
+        let totalQuantity = 0;
+        let totalPrice = 0;
+        cart.forEach(item => {
+            totalQuantity += item.quantity
+            totalPrice += item.price * item.quantity
+        })
+        return {totalQuantity, totalPrice}
+    }
 
     return (
         <div className="CartItem_container">
             <div className="cart-item">
-                {!loaded && (
-                    <div></div>
-                )}
+                {/* {!loaded && ( */}
+
+                    <img src="{image}" 
+                    alt="product"
+                    // onLoad={() => setLoaded(true)}
+                    // style={{display: loaded ? "block" : "none"}} 
+                    />
+                {/* )} */}
 
                 <div className="cart-product-item-infor">
                     <h3>{item.title}</h3>
                     <div className="cart-product-item-infor2">
                         <p>Kích cỡ SIZE 2</p>
-                        <p>x 1</p>
+                        <button onClick={() => dispatch(decrementQuantity(id))}>-</button>
+                        <p>{quantity}</p>
+                        <button onClick={() => dispatch(incrementQuantity(id))}>+</button>
                     </div>
                 </div>
             </div>
@@ -24,13 +44,13 @@ const CartItem = ({item, handleRemoveProductInCart}) => {
                 <div className="cart-price-container">
                     <div className="c-price-container">
                         <p>Tạm tính</p>
-                        <p>{Math.round(item.price * (1 - 0.01 * item.discount) * 100) / 100}{" "}đ</p>
+                        <p>{getTotal().totalPrice} đ</p>
                     </div>
 
                     <div className="cart-total-order">
                         <div className="c-total-order">
                             <div>Tổng</div>
-                            <div>395,000đ</div>
+                            <strong>{getTotal().totalPrice} đ</strong>
                         </div>
                     </div>
                 </div>

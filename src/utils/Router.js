@@ -9,11 +9,12 @@ const routerName = createBrowserRouter([
         element: <Home />,
         errorElement: <ErrorPage />
     },
+
     {
         path: "/cart",
         element: <CartPage />,
         errorElement: <ErrorPage />
-    }
-])
+    },
+]);
 
 export default routerName;

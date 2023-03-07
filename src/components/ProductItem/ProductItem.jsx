@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./ProductItem.css"
 
 
 const ProductItem = ({ item, handleCheckProductInCart }) => {
     const [loaded, setLoaded] = useState(false);
+    const dispatch = useDispatch();
 
     return (
         <div className="product-item">
@@ -19,9 +21,9 @@ const ProductItem = ({ item, handleCheckProductInCart }) => {
             alt="product"
             onLoad={() => setLoaded(true)}
             style={{display: loaded ? "block" : "none"}}
-            onClick={() => handleCheckProductInCart(item)} 
+            onClick={() => dispatch(handleCheckProductInCart(item))} 
             />
-            <a>{item?.name}</a>
+            <a href="">{item?.name}</a>
             <div className="p__infor">
                 <span>{item?.price} đ</span>             
             </div>

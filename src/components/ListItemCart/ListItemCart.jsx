@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListProductInCart, removeProductInCart } from "../../store/cart/cartActions";
+import { fetchListProductInCart, /*removeProductInCart*/ } from "../../store/cart/cartActions";
 import CartItem from "../CartItem/CartItem"
 import "./ListItemCart.css"
 
@@ -8,24 +8,28 @@ const ListItemCart = () => {
     const dispatch = useDispatch();
     const listCartItem = useSelector((state) => state.cart);
 
-    const handleRemoveProductInCart = (id) =>{
-        dispatch(removeProductInCart(id));
-    };
+    // const handleRemoveProductInCart = (id) =>{
+    //     dispatch(removeProductInCart(id));
+    // };
 
     useEffect(() => {
         dispatch(fetchListProductInCart());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="m-list-cart-container">
             <h1>GIỎ HÀNG</h1>
-
             <div className="cart-item-container">
-                {listCartItem.map((item, index) => (
+                {listCartItem.map((item) => (
                     <CartItem
-                    item={item}
-                    key={index}
-                    handleRemoveProductInCart={handleRemoveProductInCart} />
+                    item={item.id}
+                    key={item.id}
+                    avatar={item.avatar}
+                    name={item.name}
+                    price={item.price}
+                    discount={item.discount}
+                    // handleRemoveProductInCart={handleRemoveProductInCart}
+                     />
                 ))}
             </div>
 
